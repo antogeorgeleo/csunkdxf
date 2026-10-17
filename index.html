@@ -2,90 +2,218 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Countersink Hole DXF Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An Nhiên Massage Studio — a quiet place for massage, recovery and deep rest in Bắc Ninh." />
+  <title>An Nhiên — Massage & Wellness in Bắc Ninh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Google Font: Inter (modern, clean) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
 </head>
 <body>
-  <header>
-    <h1>Countersink Hole DXF Generator</h1>
-    <p>Design & Export Countersink Hole Geometry (DXF Format)</p>
+  <div class="topline">
+    <p><span class="pulse-dot" aria-hidden="true"></span> Bắc Ninh's quietest hour starts here</p>
+    <p class="topline-hours">Open daily <strong>09:00 — 21:00</strong></p>
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="An Nhien home">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span class="brand-copy"><strong>AN NHIÊN</strong><small>MASSAGE STUDIO</small></span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="#treatments">Treatments</a>
+      <a href="#ritual">Our ritual</a>
+      <a href="#space">The space</a>
+      <a href="#visit">Find us</a>
+      <a class="nav-book" href="#book">Book a treatment <span aria-hidden="true">↗</span></a>
+    </nav>
   </header>
 
   <main>
-    <!-- Input Card -->
-    <div class="card input-card">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="od">Outer Diameter (OD):</label>
-          <input
-            id="od"
-            type="number"
-            value="12"
-            step="0.1"
-            min="0.1"
-          /> mm
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Massage & wellness · Bắc Ninh</p>
+        <h1 id="hero-title">Come back<br />to your <em>body.</em></h1>
+        <p class="hero-intro">Thoughtful massage rituals for busy days, tired shoulders and the part of you that needs a little more room to breathe.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#book">Reserve your hour <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#treatments">Explore treatments <span aria-hidden="true">↓</span></a>
         </div>
-
-        <div class="form-group">
-          <label for="id">Inner Diameter (ID):</label>
-          <input
-            id="id"
-            type="number"
-            value="5"
-            step="0.1"
-            min="0.1"
-          /> mm
-        </div>
-
-        <div class="form-group">
-          <label for="angle">Countersink Angle:</label>
-          <input
-            id="angle"
-            type="number"
-            value="90"
-            step="1"
-            min="1"
-            max="180"
-          /> °
-        </div>
-
-        <div class="form-group">
-          <label for="thk">Material Thickness:</label>
-          <input
-            id="thk"
-            type="number"
-            value="20"
-            step="0.1"
-            min="0.1"
-          /> mm
+        <div class="hero-note">
+          <span class="note-line" aria-hidden="true"></span>
+          <p>“An nhiên” means a calm, untroubled state of mind.<br /><span>An invitation to feel it — not just pronounce it.</span></p>
         </div>
       </div>
 
-      <button class="primary-btn" onclick="generateDXF()">
-        Generate DXF
-      </button>
-    </div>
+      <div class="hero-visual reveal reveal-delay-1">
+        <div class="hero-image-wrap">
+          <img src="image-search/luxury-spa-massage-room-warm-light-stone-1.jpg" alt="Warmly lit massage room with two treatment beds" />
+          <div class="hero-image-wash" aria-hidden="true"></div>
+        </div>
+        <div class="hero-badge">
+          <span class="badge-star" aria-hidden="true">✳</span>
+          <span><strong>5.0</strong><small>Guest loved</small></span>
+        </div>
+        <div class="hero-caption"><span>01</span><span>Room for rest</span></div>
+      </div>
+    </section>
 
-    <!-- Preview Card -->
-    <div class="card preview-card">
-      <h2>Geometry Preview</h2>
-      <div class="preview-container">
-        <div class="view-box">
-          <canvas id="topView" width="240" height="240"></canvas>
-          <p>Top View</p>
-        </div>
-        <div class="view-box">
-          <canvas id="sideView" width="320" height="280"></canvas>
-          <p>Side View</p>
-        </div>
+    <div class="ticker" aria-label="An Nhien values">
+      <div class="ticker-track">
+        <span>Slow down</span><b>✳</b><span>Breathe deeply</span><b>✳</b><span>Feel better</span><b>✳</b><span>Slow down</span><b>✳</b><span>Breathe deeply</span><b>✳</b><span>Feel better</span><b>✳</b>
       </div>
     </div>
+
+    <section class="intro section-shell" id="space" aria-labelledby="intro-title">
+      <div class="section-label reveal"><span>01</span><span>Our approach</span></div>
+      <div class="intro-grid">
+        <div class="intro-art reveal">
+          <div class="leaf-orbit orbit-one" aria-hidden="true"></div>
+          <div class="leaf-orbit orbit-two" aria-hidden="true"></div>
+          <img src="image-search/luxury-spa-massage-room-warm-light-stone-3.webp" alt="Calm, light-filled treatment room with plants and a fresh massage table" />
+          <div class="image-stamp"><span>Since</span><strong>2024</strong><span>Bắc Ninh</span></div>
+        </div>
+        <div class="intro-copy reveal reveal-delay-1">
+          <p class="eyebrow"><span></span> A gentler way to reset</p>
+          <h2 id="intro-title">Not a luxury<br />you save for <em>later.</em></h2>
+          <p>Between the traffic, the deadlines and the to-do list, your body keeps the score. An Nhiên is a small, considered pause in the middle of Bắc Ninh — warm rooms, skilled hands and enough time to let your shoulders drop.</p>
+          <p>Every session begins with a conversation and ends with a slower breath. No rush, no hard sell, no one-size-fits-all routine.</p>
+          <a class="arrow-link" href="#ritual">Discover the An Nhiên ritual <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="treatments" id="treatments" aria-labelledby="treatments-title">
+      <div class="section-shell">
+        <div class="treatments-heading reveal">
+          <div class="section-label section-label-light"><span>02</span><span>Take your pick</span></div>
+          <div>
+            <p class="eyebrow eyebrow-light"><span></span> Made for the way you feel today</p>
+            <h2 id="treatments-title">Choose your kind<br />of <em>stillness.</em></h2>
+          </div>
+          <p class="heading-aside">Three signature rituals. One very good reason to put your phone down.</p>
+        </div>
+
+        <div class="treatment-list">
+          <article class="treatment-card reveal">
+            <div class="treatment-number">01</div>
+            <div class="treatment-main">
+              <p class="treatment-tag">Best for desk days</p>
+              <h3>Deep Tissue<br /><em>Reset</em></h3>
+              <p>Focused, unhurried pressure for necks, backs and muscles that have been holding on too long.</p>
+            </div>
+            <div class="treatment-meta"><span>60 min</span><strong>690.000đ</strong><button class="choose-treatment" type="button" data-treatment="Deep Tissue Reset — 60 min">Choose <span aria-hidden="true">↗</span></button></div>
+          </article>
+
+          <article class="treatment-card treatment-featured reveal reveal-delay-1">
+            <div class="treatment-number">02</div>
+            <div class="treatment-main">
+              <p class="treatment-tag">Our signature</p>
+              <h3>Aroma<br /><em>Flow</em></h3>
+              <p>Slow, flowing strokes and botanical oils to quiet the nervous system and soften the edges of your day.</p>
+            </div>
+            <div class="treatment-meta"><span>75 min</span><strong>790.000đ</strong><button class="choose-treatment" type="button" data-treatment="Aroma Flow — 75 min">Choose <span aria-hidden="true">↗</span></button></div>
+          </article>
+
+          <article class="treatment-card reveal reveal-delay-2">
+            <div class="treatment-number">03</div>
+            <div class="treatment-main">
+              <p class="treatment-tag">For a full reset</p>
+              <h3>Warm Stone<br /><em>Ritual</em></h3>
+              <p>Heated basalt stones, grounding touch and a little more time to make the whole body feel held.</p>
+            </div>
+            <div class="treatment-meta"><span>90 min</span><strong>990.000đ</strong><button class="choose-treatment" type="button" data-treatment="Warm Stone Ritual — 90 min">Choose <span aria-hidden="true">↗</span></button></div>
+          </article>
+        </div>
+        <p class="treatment-footnote"><span aria-hidden="true">✳</span> First visit? Tell us what your body needs and we will help you choose.</p>
+      </div>
+    </section>
+
+    <section class="ritual section-shell" id="ritual" aria-labelledby="ritual-title">
+      <div class="section-label reveal"><span>03</span><span>The An Nhiên ritual</span></div>
+      <div class="ritual-heading reveal">
+        <h2 id="ritual-title">Arrive as you are.<br />Leave a little <em>lighter.</em></h2>
+        <p>We have made the experience simple on purpose. Your only job is to show up.</p>
+      </div>
+      <div class="ritual-steps">
+        <article class="ritual-step reveal"><span class="step-icon">01</span><h3>Check in</h3><p>A warm tea, a quiet conversation and a treatment shaped around how you feel today.</p></article>
+        <article class="ritual-step reveal reveal-delay-1"><span class="step-icon">02</span><h3>Let go</h3><p>Phones away, lights low. Your therapist works at your pace, with room for feedback.</p></article>
+        <article class="ritual-step reveal reveal-delay-2"><span class="step-icon">03</span><h3>Stay a while</h3><p>Take your time with ginger tea, a slower breath and a body that feels like yours again.</p></article>
+      </div>
+    </section>
+
+    <section class="booking-section" id="book" aria-labelledby="book-title">
+      <div class="section-shell booking-grid">
+        <div class="booking-copy reveal">
+          <div class="section-label section-label-light"><span>04</span><span>Make time for you</span></div>
+          <p class="eyebrow eyebrow-light"><span></span> Book your reset</p>
+          <h2 id="book-title">Your hour<br />is <em>waiting.</em></h2>
+          <p>Tell us when you would like to come in. We will confirm your appointment by phone or Zalo within 30 minutes.</p>
+          <div class="contact-mini">
+            <a href="tel:+84222730909"><span class="contact-icon" aria-hidden="true">↗</span><span><small>Call or Zalo</small><strong>+84 222 730 909</strong></span></a>
+            <a href="#visit"><span class="contact-icon" aria-hidden="true">⌖</span><span><small>Find us</small><strong>12 Nguyễn Quyền, Bắc Ninh</strong></span></a>
+          </div>
+        </div>
+
+        <form class="booking-form reveal reveal-delay-1" id="booking-form">
+          <div class="form-header"><span>Reservation request</span><span class="form-step">01 / 01</span></div>
+          <div class="form-row">
+            <label class="field"><span>Your name</span><input type="text" name="name" placeholder="Nguyễn An" autocomplete="name" required /></label>
+            <label class="field"><span>Phone / Zalo</span><input type="tel" name="phone" placeholder="09x xxx xxxx" autocomplete="tel" required /></label>
+          </div>
+          <label class="field"><span>Choose a treatment</span><select name="treatment" id="treatment-select" required><option value="" disabled selected>Select your ritual</option><option>Deep Tissue Reset — 60 min</option><option>Aroma Flow — 75 min</option><option>Warm Stone Ritual — 90 min</option></select></label>
+          <div class="form-row">
+            <label class="field"><span>Preferred date</span><input type="date" name="date" id="booking-date" required /></label>
+            <div class="field"><span>Preferred time</span><div class="time-options" role="group" aria-label="Preferred time"><button type="button" class="time-option" data-time="Morning">09–12</button><button type="button" class="time-option" data-time="Afternoon">13–17</button><button type="button" class="time-option" data-time="Evening">18–21</button></div><input type="hidden" name="time" id="time-value" required /></div>
+          </div>
+          <label class="field"><span>Anything we should know? <small>(optional)</small></span><textarea name="note" rows="2" placeholder="A sore shoulder, a celebration, a preference..." ></textarea></label>
+          <button class="button button-light form-submit" type="submit">Request my appointment <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="form-status" role="status"></p>
+          <p class="form-disclaimer">By submitting, you agree to be contacted about your appointment.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="visit section-shell" id="visit" aria-labelledby="visit-title">
+      <div class="visit-top reveal">
+        <div class="section-label"><span>05</span><span>Come find us</span></div>
+        <h2 id="visit-title">Close to the city.<br /><em>Far from the noise.</em></h2>
+      </div>
+      <div class="visit-grid">
+        <div class="map-card reveal">
+          <div class="map-grid" aria-hidden="true"></div>
+          <div class="map-road road-a" aria-hidden="true"></div><div class="map-road road-b" aria-hidden="true"></div><div class="map-road road-c" aria-hidden="true"></div>
+          <div class="map-pin" aria-label="An Nhien Massage Studio location"><span>✳</span></div>
+          <div class="map-label"><strong>AN NHIÊN</strong><span>Massage Studio</span></div>
+          <span class="map-place place-one">Bắc Ninh</span><span class="map-place place-two">Hồ Ngọc Lân</span>
+        </div>
+        <div class="visit-copy reveal reveal-delay-1">
+          <p class="eyebrow"><span></span> Your next exhale</p>
+          <p>We are tucked into a calm corner just off Nguyễn Quyền — easy to reach from the city centre, and intentionally a world away once you step through the door.</p>
+          <div class="visit-details">
+            <div><span>Address</span><strong>12 Nguyễn Quyền<br />Võ Cường, Bắc Ninh</strong></div>
+            <div><span>Hours</span><strong>Every day<br />09:00 — 21:00</strong></div>
+          </div>
+          <a class="arrow-link" href="https://maps.google.com/?q=12+Nguyen+Quyen+Bac+Ninh" target="_blank" rel="noreferrer">Open in Google Maps <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="section-shell footer-main">
+      <a class="brand brand-light" href="#top" aria-label="An Nhien home"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-copy"><strong>AN NHIÊN</strong><small>MASSAGE STUDIO</small></span></a>
+      <p>Make a little room<br /><em>for feeling good.</em></p>
+      <a class="footer-book" href="#book">Book a treatment <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="section-shell footer-bottom"><span>© 2024 An Nhiên Massage Studio</span><span>Made slowly in Bắc Ninh</span><a href="#top">Back to top ↑</a></div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
