@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aurum — a premium gold price comparator for Vietnam and India. Convert per chi, gram, pavan and tola rates, and export a print-ready PDF report."
+    />
+    <title>Aurum · Gold Price Comparator — Vietnam vs India</title>
+
+    <meta name="theme-color" content="#06070a" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a0b0e'/><path d='M8 11.5h16l4 14H4z' fill='%23e5c176'/><path d='M12 17h8' stroke='%230a0b0e' stroke-width='1.6'/></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Ambient background layers -->
+    <div class="aurora" aria-hidden="true">
+      <span class="aurora__glow aurora__glow--gold"></span>
+      <span class="aurora__glow aurora__glow--jade"></span>
+      <span class="aurora__grain"></span>
+    </div>
+
+    <div class="app-shell">
+      <!-- ============================= Masthead ============================= -->
+      <header class="masthead">
+        <a class="brand" href="#top" aria-label="Aurum home">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="presentation">
+              <defs>
+                <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f6e3b4" />
+                  <stop offset="45%" stop-color="#e5c176" />
+                  <stop offset="100%" stop-color="#a9803a" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M24 5.5 32.6 12h-6.1l-2.5 4.6-2.5-4.6h-6.1L24 5.5Z"
+                fill="url(#goldGrad)"
+                opacity=".9"
+              />
+              <path
+                d="M13 20h22l5.5 19.5H7.5L13 20Z"
+                fill="none"
+                stroke="url(#goldGrad)"
+                stroke-width="1.6"
+              />
+              <path d="M13 20h22l1.6 5.7H11.4L13 20Z" fill="url(#goldGrad)" opacity=".55" />
+              <path d="M18 31.5h12" stroke="url(#goldGrad)" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="brand__text">
+            <span class="brand__name">Aurum</span>
+            <span class="brand__sub">Bullion Desk</span>
+          </span>
+        </a>
+
+        <div class="masthead__actions">
+          <span class="pill pill--live">
+            <span class="pill__dot" aria-hidden="true"></span>
+            Live conversion
+          </span>
+
+          <button
+            id="themeToggle"
+            class="icon-btn"
+            type="button"
+            aria-label="Switch to light theme"
+            title="Switch theme"
+          >
+            <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <path
+                d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="top">
+        <!-- ============================== Hero ============================== -->
+        <section class="hero">
+          <p class="eyebrow">
+            <span class="eyebrow__rule" aria-hidden="true"></span>
+            Aurum index · Việt Nam <span aria-hidden="true">⇄</span> भारत
+          </p>
+          <h1>
+            The price of gold,<br />
+            <em>side by side.</em>
+          </h1>
+          <p class="lede">
+            Enter the local quotes and a single exchange rate. Aurum normalises both markets
+            into grams, chi, pavan and tola — then hands you a print-ready comparison report.
+          </p>
+
+          <dl class="hero__facts">
+            <div><dt>Chi (mace)</dt><dd>3.75 g</dd></div>
+            <div><dt>Pavan</dt><dd>8 g</dd></div>
+            <div><dt>Tola</dt><dd>11.664 g</dd></div>
+            <div><dt>Output</dt><dd>₹ INR</dd></div>
+          </dl>
+        </section>
+
+        <!-- ============================ Input panel ========================== -->
+        <section class="panel" aria-labelledby="inputHeading">
+          <div class="panel__head">
+            <div>
+              <h2 id="inputHeading">Market inputs</h2>
+              <p>Quotes are converted in your browser — nothing leaves this page.</p>
+            </div>
+            <button id="btnSample" class="chip" type="button">Load sample quote</button>
+          </div>
+
+          <form class="field-grid" id="goldForm" novalidate>
+            <div class="field" data-field="vnChi">
+              <label for="vnChi">
+                Vietnam gold rate
+                <span class="field__unit">VND / chi</span>
+              </label>
+              <div class="field__control">
+                <span class="field__affix" aria-hidden="true">₫</span>
+                <input
+                  id="vnChi"
+                  name="vnChi"
+                  type="number"
+                  inputmode="decimal"
+                  step="any"
+                  min="0"
+                  value="15000000"
+                  autocomplete="off"
+                  aria-describedby="vnChiHint"
+                />
+              </div>
+              <p class="field__hint" id="vnChiHint">SJC-style domestic quote per mace</p>
+              <p class="field__error" role="alert"></p>
+            </div>
+
+            <div class="field" data-field="inGram">
+              <label for="inGram">
+                India gold rate
+                <span class="field__unit">INR / gram</span>
+              </label>
+              <div class="field__control">
+                <span class="field__affix" aria-hidden="true">₹</span>
+                <input
+                  id="inGram"
+                  name="inGram"
+                  type="number"
+                  inputmode="decimal"
+                  step="any"
+                  min="0"
+                  value="12050"
+                  autocomplete="off"
+                  aria-describedby="inGramHint"
+                />
+              </div>
+              <p class="field__hint" id="inGramHint">24K rate per gram, ex-GST</p>
+              <p class="field__error" role="alert"></p>
+            </div>
+
+            <div class="field" data-field="fx">
+              <label for="fx">
+                Exchange rate
+                <span class="field__unit" id="fxUnit">1 VND = ? INR</span>
+              </label>
+              <div class="field__control">
+                <span class="field__affix" aria-hidden="true">⇄</span>
+                <input
+                  id="fx"
+                  name="fx"
+                  type="number"
+                  inputmode="decimal"
+                  step="any"
+                  min="0"
+                  value="0.00327"
+                  autocomplete="off"
+                  aria-describedby="fxHint"
+                />
+                <button
+                  id="invertFx"
+                  class="field__action"
+                  type="button"
+                  title="Invert the exchange rate"
+                  aria-label="Invert the exchange rate"
+                >
+                  Invert
+                </button>
+              </div>
+              <p class="field__hint" id="fxHint">Roughly 306 VND per Indian rupee</p>
+              <p class="field__error" role="alert"></p>
+            </div>
+          </form>
+
+          <div class="panel__foot">
+            <p class="panel__note">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4" />
+                <path d="M12 11v5.2M12 8.1v.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+              Values are normalised to ₹ INR per unit so both markets compare like for like.
+            </p>
+
+            <div class="panel__cta">
+              <button id="btnReset" class="btn btn--ghost" type="button">Reset</button>
+              <button id="btnCsv" class="btn btn--ghost" type="button">CSV</button>
+              <button id="btnPdf" class="btn btn--gold" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7 9V4h10v5M7 18H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2M7 14h10v6H7v-6Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Export PDF
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================= Results ============================ -->
+        <section class="results" aria-labelledby="resultsHeading" aria-live="polite">
+          <h2 id="resultsHeading" class="sr-only">Comparison results</h2>
+
+          <!-- Verdict -->
+          <article class="verdict" id="verdict">
+            <div class="verdict__left">
+              <p class="verdict__label">Verdict</p>
+              <h3 class="verdict__title" id="verdictTitle">—</h3>
+              <p class="verdict__text" id="verdictText">Enter two valid quotes to compare.</p>
+            </div>
+            <div class="verdict__right">
+              <p class="verdict__delta" id="verdictPercent">—</p>
+              <p class="verdict__delta-label">cheaper per gram</p>
+            </div>
+          </article>
+
+          <!-- KPI cards -->
+          <div class="kpi-grid" id="kpiGrid"><!-- generated --></div>
+
+          <!-- Bars -->
+          <section class="panel panel--bars" aria-labelledby="barsHeading">
+            <div class="panel__head">
+              <div>
+                <h2 id="barsHeading">Relative value</h2>
+                <p>Price of one gram, both markets in ₹ INR.</p>
+              </div>
+            </div>
+            <div class="bars">
+              <div class="bar-row">
+                <div class="bar-row__head">
+                  <span class="bar-row__market"><span class="flag flag--vn" aria-hidden="true">VN</span> Vietnam</span>
+                  <span class="bar-row__value" id="barVnVal">—</span>
+                </div>
+                <div class="bar-track"><span class="bar-fill bar-fill--vn" id="barVN"></span></div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-row__head">
+                  <span class="bar-row__market"><span class="flag flag--in" aria-hidden="true">IN</span> India</span>
+                  <span class="bar-row__value" id="barInVal">—</span>
+                </div>
+                <div class="bar-track"><span class="bar-fill bar-fill--in" id="barIN"></span></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ledger -->
+          <section class="panel" aria-labelledby="ledgerHeading">
+            <div class="panel__head">
+              <div>
+                <h2 id="ledgerHeading">Unit ledger</h2>
+                <p>Every common bullion unit, converted to rupees.</p>
+              </div>
+              <span class="pill" id="fxRatePill">—</span>
+            </div>
+            <div class="table-wrap">
+              <table class="ledger">
+                <thead>
+                  <tr>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Vietnam</th>
+                    <th scope="col">India</th>
+                    <th scope="col">Difference</th>
+                    <th scope="col">Cheaper</th>
+                  </tr>
+                </thead>
+                <tbody id="ledgerBody"><!-- generated --></tbody>
+              </table>
+            </div>
+
+            <ul class="insights" id="insights"><!-- generated --></ul>
+          </section>
+
+          <!-- History -->
+          <section class="panel panel--history" aria-labelledby="historyHeading">
+            <div class="panel__head">
+              <div>
+                <h2 id="historyHeading">Saved snapshots</h2>
+                <p>Keep a short audit trail of quotes you have compared.</p>
+              </div>
+              <div class="panel__cta">
+                <button id="btnClearHistory" class="chip" type="button">Clear</button>
+                <button id="btnSave" class="chip chip--solid" type="button">Save snapshot</button>
+              </div>
+            </div>
+            <ol class="history" id="historyList"><!-- generated --></ol>
+            <p class="history__empty" id="historyEmpty">
+              No snapshots yet — compare two quotes and press <strong>Save snapshot</strong>.
+            </p>
+          </section>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p><span class="brand__name">Aurum</span> · Bullion Desk — offline-first gold comparison.</p>
+        <p class="site-footer__meta">
+          Standard conversions: 1 chi = 3.75 g · 1 pavan = 8 g · 1 tola = 11.664 g. Rates entered
+          manually; excludes making charges, duties and taxes.
+        </p>
+      </footer>
+    </div>
+
+    <!-- ====================== Print / PDF report ======================= -->
+    <section class="report" id="report" aria-hidden="true"><!-- generated --></section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
